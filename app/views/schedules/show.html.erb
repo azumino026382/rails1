@@ -1,0 +1,37 @@
+<div class="container">
+  <section class="FormWrapper">
+    <%= link_to "←一覧に戻る", schedules_path %>
+	
+    <div class="PageTitle">
+        <h2 class="PageTitle__text"><%= @schedule.title %></h2>
+        <%= link_to "編集", edit_schedule_path %>
+		
+	</div>
+	
+	<div class="FormContainer">
+      <table>
+	    <tbody>
+	      <tr>
+	        <th>開始日</th>
+			<td><%= @schedule.start.to_s(:datetimeh_jp) %></td>
+		  </tr>
+		  <tr>
+			<th>終了日</th>
+			<td><%= @schedule.end.to_s(:datetimeh_jp) %></td>
+		  </tr>
+		  <tr>
+		    <th>終日</th>
+			<td><%= @schedule.all %></td>
+		  </tr>
+		  <tr>
+			<th>スケジュールメモ</th>
+			<td><%= @schedule.memo %></td>
+		  </tr>
+		  
+		</tbody>
+	  </table>
+	  
+	</div>
+  
+  </section>
+</div>

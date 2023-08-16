@@ -1,0 +1,90 @@
+<div class="container">
+  
+    <% if flash[:notice] %>
+     <p class="notice"><%= flash[:notice] %></p>
+    <% end %>
+
+  <div class="PageTitle">
+    <h2 class="PageTitle__text">予定一覧</h2>
+    
+    <%= link_to "新規追加", new_schedule_path %>
+
+  </div>
+
+  <div class="table-responsive TableResponsive">
+    
+    <table class="table Table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>タイトル</th>
+          <th>開始日</th>
+          <th>終了日</th>
+          <th>終日</th>
+          <th>更新日時</th>
+          <th></th>
+          <th></th>
+          <th></th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <% @schedules.each do |schedule| %>      
+          <tr>
+            <td>
+              <%= schedule.id %>
+            </td>
+
+            <td>
+              <%= schedule.title %>
+            </td>
+
+            <td>
+              <%= schedule.start.to_s(:datetime_jp) %>
+            </td>
+
+            <td>
+              <%= schedule.end.to_s(:datetime_jp) %>
+            </td>
+
+            <td>
+                <strong><%= schedule.all %></strong>
+            </td>
+
+            <td>
+              <%= schedule.updated_at.to_s(:datetimeh_jp) %>
+            </td>
+
+            <td>
+              <%= link_to "詳細", schedule_path(schedule) %>
+            </td>
+
+            <td>
+              <%= link_to "編集", edit_schedule_path(schedule) %>
+            </td>
+
+            <td>
+              <%= link_to "削除", schedule_path(schedule), method: :delete, data: { confirm: "本当に削除しますか？" } %>
+            </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+  <footer class="card Footer">
+    <div class="card-body FooterBody">
+      <p class="FooterBody__count">
+        <%= "予定合計 #{@schedules_count}件" %>
+          
+      </p>
+
+      <p class="FooterBody__datetime">
+        <%= "本日の日付 #{@today}" %>
+      </p>
+    </div>
+  </footer>
+        
+      
+
+  
+</div>

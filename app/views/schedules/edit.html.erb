@@ -1,0 +1,38 @@
+
+<div class="container">
+  <%= form_with model: @schedule do |f| %>
+		<div class="FormWrapper">
+			<h2 class="PageTitle__text">予定を編集してください</h2>
+			<div class="FormContainer">
+				<form class="">
+					<div class="FormTitle">
+						<%= f.label :title ,"タイトル" %>
+						<%= f.text_field :title %>
+					</div>
+					<div class="FormStart">
+						<%= f.label :start ,"開始日" %>
+						<%= f.datetime_field :start %>
+					</div>
+					<div class="FormEnd">
+						<%= f.label :end ,"終了日" %>
+						<%= f.datetime_field :end %>
+					</div>
+					<div class="FormAll__check">
+						<%= f.check_box :all, {}, checked_value = "○",unchecked_value = "" %>
+						<%= f.label :all ,"終日の場合はチェックを入れます" %>
+					</div>
+					<div class="FormMemo">
+						<%= f.label :memo ,"スケジュールメモ" %>
+						<%= f.text_area :memo %>
+					</div>
+					<div class="FormContainer__buttons">
+					    <%= link_to "キャンセル", schedules_path %>
+						
+						<%= f.submit "保存"%>
+					</div>
+				</form>
+			</div>
+		</div>
+  <% end %>
+</div>
+
