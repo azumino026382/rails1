@@ -7,3 +7,4 @@ class ChangeSchedulesStartToDatetime < ActiveRecord::Migration[6.1]
     change_column :schedules, :start, :string
   end
 end
+

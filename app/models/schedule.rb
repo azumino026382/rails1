@@ -9,3 +9,4 @@ class Schedule < ApplicationRecord
     self.start < self.end
   end 
 end
+
