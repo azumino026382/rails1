@@ -7,3 +7,4 @@ class ChangeSchedulesAllToBoolean < ActiveRecord::Migration[6.1]
     change_column :schedules, :all, :string
   end
 end
+
