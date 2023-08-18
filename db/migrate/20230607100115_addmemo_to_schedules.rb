@@ -3,3 +3,4 @@ class AddmemoToSchedules < ActiveRecord::Migration[6.1]
     add_column :schedules, :memo, :string
   end
 end
+
